@@ -1,6 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
 import selfie from "./Pictures/2.jpg";
+import { AppFooter } from "./footer/components";
+import MainMenu from "./menu/MainMenu";
 
 function AppHeader() {
   return (
@@ -23,34 +25,6 @@ function AppHeader() {
 
       <MainMenu />
     </header>
-  );
-}
-
-function MainMenu() {
-  return (
-    <ul id="top-menu-bar">
-      <li>
-        <a href="#" data-page="home">
-          HOME
-        </a>
-      </li>
-      <li>
-        <a href="#" data-page="skills">
-          Skills
-        </a>
-      </li>
-
-      <li>
-        <a href="#" data-page="projects">
-          Projects
-        </a>
-      </li>
-      <li>
-        <a href="#" data-page="languages">
-          Known Languages
-        </a>
-      </li>
-    </ul>
   );
 }
 
@@ -149,27 +123,6 @@ function KnowLanguagesTable() {
         <td>B2</td>
       </tr>
     </table>
-  );
-}
-
-function AppFooter() {
-  return (
-    <footer className="Footer">
-      <a target="_blank" href="https://www.google.com">
-        <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" height="20" />
-      </a>
-
-      <a target="_blank" href="https://fasttrackit.org/">
-        <img src="https://fasttrackit.org/wp-content/uploads/2020/08/fasttrackit.png" height="20" />
-      </a>
-      <a target="_blank" href="https://github.com/vaidanicu">
-        <img src="/Pictures/GitHub_logo_2013.svg.png" height="20" />
-      </a>
-
-      <a target="_blank" href="https://www.linkedin.com/in/vaidaaurelnicolae/">
-        <img src="/Pictures/1.gif" height="20" />
-      </a>
-    </footer>
   );
 }
 
