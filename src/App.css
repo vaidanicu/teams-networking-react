@@ -52,6 +52,11 @@ body {
   background-size: cover;
 }
 
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 /* header-wrapper */
 
 #header-wrapper {
