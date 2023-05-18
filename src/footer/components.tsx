@@ -1,3 +1,4 @@
+// import pictures from "../Pictures";
 export function AppFooter() {
   return (
     <footer className="Footer">
@@ -9,11 +10,14 @@ export function AppFooter() {
         <img src="https://fasttrackit.org/wp-content/uploads/2020/08/fasttrackit.png" height="20" />
       </a>
       <a target="_blank" href="https://github.com/vaidanicu">
-        <img src="/Pictures/GitHub_logo_2013.svg.png" height="20" />
+        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png" height="20" />
       </a>
 
       <a target="_blank" href="https://www.linkedin.com/in/vaidaaurelnicolae/">
-        <img src="/Pictures/1.gif" height="20" />
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/2560px-LinkedIn_Logo.svg.png"
+          height="20"
+        />
       </a>
     </footer>
   );
