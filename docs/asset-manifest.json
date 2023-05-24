@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0a22b52b.css",
+    "main.js": "/static/js/main.89daffae.js",
+    "static/js/787.b99b1b81.chunk.js": "/static/js/787.b99b1b81.chunk.js",
+    "static/media/2.jpg": "/static/media/2.f608260ac1d93724de14.jpg",
+    "static/media/hot-air-balloon-gc5ae3774d_1280.jpg": "/static/media/hot-air-balloon-gc5ae3774d_1280.1f57fe83b62a104df57f.jpg",
+    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/index.html",
+    "main.0a22b52b.css.map": "/static/css/main.0a22b52b.css.map",
+    "main.89daffae.js.map": "/static/js/main.89daffae.js.map",
+    "787.b99b1b81.chunk.js.map": "/static/js/787.b99b1b81.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0a22b52b.css",
+    "static/js/main.89daffae.js"
+  ]
+}
