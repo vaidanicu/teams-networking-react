@@ -13,7 +13,7 @@ export default function MainMenu() {
       </li>
 
       <li>
-        <a href="#" data-page="projects">
+        <a href="#" data-page="teams" className="active">
           Projects
         </a>
       </li>

@@ -1,4 +1,4 @@
-import { TeamsTable } from "../Teams/TeamsTable";
+import { TeamsTableWrapper } from "../Teams/TeamsTable";
 import { SideMenu } from "../menu/SideMenu";
 import { KnowLanguagesTable } from "./KnowLanguagesTable";
 
@@ -34,7 +34,7 @@ export function ContentWrapper() {
           <div>
             <input type="search" name="search" id="search" placeholder="Search" />
           </div>
-          <TeamsTable />
+          <TeamsTableWrapper />
         </div>
 
         <div id="languages" className="page" style={{ display: "none" }}>
