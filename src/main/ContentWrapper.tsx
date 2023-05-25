@@ -1,3 +1,4 @@
+import { TeamsTable } from "../Teams/TeamsTable";
 import { SideMenu } from "../menu/SideMenu";
 import { KnowLanguagesTable } from "./KnowLanguagesTable";
 
@@ -7,7 +8,7 @@ export function ContentWrapper() {
       <SideMenu />
 
       <div id="main">
-        <div id="home" className="page">
+        <div id="home" className="page" style={{ display: "none" }}>
           <h2>Home</h2>
           <p>
             <u>This page is about me.</u>
@@ -24,26 +25,19 @@ export function ContentWrapper() {
           <p>I like to go to church and in my free time i love to spend time with my family.</p>
         </div>
 
-        <div id="skills" className="page">
+        <div id="skills" className="page" style={{ display: "none" }}>
           <h2>Skills</h2>
           <ul id="skills-list"></ul>
         </div>
 
-        <div id="projects" className="page">
-          <h2>Projects</h2>
-          <li>
-            <a target="_blank" href="https://vaidanicu.github.io/e-sport.github.io/">
-              E-Sport
-            </a>
-          </li>
-          <li>
-            <a target="_blank" href="https://elenazaharia1.github.io/quiz-game/">
-              Quiz-Game
-            </a>
-          </li>
+        <div id="projects" className="page" style={{ display: "block" }}>
+          <div>
+            <input type="search" name="search" id="search" placeholder="Search" />
+          </div>
+          <TeamsTable />
         </div>
 
-        <div id="languages" className="page">
+        <div id="languages" className="page" style={{ display: "none" }}>
           <h2>Known Language</h2>
           <KnowLanguagesTable />
         </div>
