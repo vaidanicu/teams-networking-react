@@ -1,10 +1,25 @@
+import React from "react";
 import "./style.css";
+import { deleteTeamRequest, loadTeamsRequest } from "./middleware";
+type Team = {
+  id?: string;
+  promotion: string;
+  members: string;
+  name: string;
+  url: string;
+};
 
-export function TeamsTable(props) {
+type Props = {
+  loading: boolean;
+  teams: Team[];
+  removeTeam(id: string): void;
+};
+
+export function TeamsTable(props: Props) {
   console.log("props", props);
   return (
     <form id="editForm" action="" method="post" className={props.loading ? "loading-mask" : ""}>
-      <table id="teams">
+      <table border={2} id="teams">
         <thead>
           <tr>
             <th>Group</th>
@@ -15,22 +30,34 @@ export function TeamsTable(props) {
           </tr>
         </thead>
         <tbody>
-          {props.teams.map(({ promotion, members, name, url, id }) => (
-            <tr key={id}>
-              <td>{promotion}</td>
-              <td>{members}</td>
-              <td>{name}</td>
-              <td>
-                <a href={url} target="_blank">
-                  {url.replace("https://github.com", "")}
-                </a>
-              </td>
-              <td>
-                <a className="removeBtn">&#10006</a>
-                <a className="edit-btn">&#9998</a>
-              </td>
-            </tr>
-          ))}
+          {props.teams.map(({ id, promotion, members, name, url }) => {
+            return (
+              <tr key={id}>
+                <td>{promotion}</td>
+                <td>{members}</td>
+                <td>{name}</td>
+
+                <td>
+                  <a href={url} target="_blank">
+                    {url.replace("https://github.com", "")}
+                  </a>
+                </td>
+                <td>
+                  <a
+                    href="#"
+                    onClick={() => {
+                      console.log("click", id);
+                      props.removeTeam(id!);
+                    }}
+                    className="removeBtn"
+                  >
+                    ✖️
+                  </a>
+                  <a className="edit-btn">🖊️</a>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
         <tfoot>
           <tr>
@@ -61,43 +88,48 @@ export function TeamsTable(props) {
   );
 }
 
-export function TeamsTableWrapper() {
-  const teams = [
-    {
-      id: "toze8j1610313009673",
-      promotion: "html",
-      members: "Nicolae Matei, HTML",
-      name: "Web Presentation",
-      url: "https://github.com/nmatei/web-intro-presentation"
-    },
-    {
-      id: "ezabnf1630345987541",
-      promotion: "css",
-      members: "Nicolae",
-      name: "Names",
-      url: "https://github.com/nmatei/nmatei.github.io"
-    },
-    {
-      id: "86mq81630347385708",
-      promotion: "js",
-      members: "Matei, Andrei",
-      name: "JS/HTML/CSS Quiz",
-      url: "https://github.com/nmatei/simple-quiz-app"
-    },
-    {
-      id: "w2aal1630347411901",
-      promotion: "js",
-      members: "FastTrackIT Students, Nicolae",
-      name: "Teams Networking",
-      url: "https://github.com/nmatei/teams-networking"
-    },
-    {
-      id: "w2aal1630347411902",
-      promotion: "react",
-      members: "FastTrackIT Students, Nicolae",
-      name: "Teams Networking React",
-      url: "https://github.com/nmatei/teams-networking-react"
-    }
-  ];
-  return <>{TeamsTable({ teams: teams, loading: false })}</>;
+export class TeamsTableWrapper extends React.Component<any, any> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true,
+      teams: []
+    };
+  }
+
+  componentDidMount() {
+    this.loadTeams();
+  }
+  async loadTeams() {
+    const teams = await loadTeamsRequest();
+    console.log(teams);
+    this.setState({
+      loading: false,
+      teams
+    });
+  }
+
+  render() {
+    return (
+      <TeamsTable
+        loading={this.state.loading}
+        teams={this.state.teams}
+        removeTeam={async id => {
+          this.setState({
+            loading: true
+          });
+          await deleteTeamRequest(id);
+          // this.loadTeams(); v1
+
+          this.setState(state => {
+            const teams = state.teams.filter(team => team.id !== id);
+            return {
+              loading: false,
+              teams
+            };
+          });
+        }}
+      />
+    );
+  }
 }
